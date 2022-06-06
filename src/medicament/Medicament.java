@@ -68,4 +68,16 @@ public class Medicament {
     public void addStockMedoc(int quantite){
          this.quantite += quantite;
     }
+
+    //deduction quantite medicament
+
+    public void reductionafterAchat(int quantite){
+        this.quantite -= quantite;
+    }
+
+    // verifier si la quantite demandee est sup à la quantite existante
+
+    public boolean verifierQuantite(int quantiteDemande){
+        return this.quantite > quantiteDemande;
+    }
 }

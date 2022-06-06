@@ -48,4 +48,12 @@ public class Client {
     public void affichage(){
         System.out.println(this);
     }
+
+    // methodes utiles au besoin de verification
+
+    public boolean verifierCredit(){
+        return  this.credit > 0;
+    }
+
+
 }
