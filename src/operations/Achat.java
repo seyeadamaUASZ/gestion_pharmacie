@@ -1,4 +1,4 @@
-package Operation;
+package operations;
 
 import clients.Client;
 import medicament.Medicament;

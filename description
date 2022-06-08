@@ -3,7 +3,7 @@ Objectif : Ecrire un programme orienté objets qui permet de gérer une medicame
 La medicament gère des clients et des médicaments.
 Un client est caractérisé par un nom et un crédit.
 
-Le crédit représente la somme que ce client doit à la medicament.
+Le crédit représente la somme que ce client doit à la pharmacie.
 
 Le crédit peut être négatif si le client a versé plus d'argent que le montant.
 
@@ -19,8 +19,8 @@ Le programme doit boucler jusqu'à introduction d'un nom correct.
 
 Cette procédure de vérification sera prise en charge par la méthode lireMedicament(..) décrite plus bas.
 
-Operation(..) permet de traiter un Operation fait par un client. l'Operation porte sur un médicament donné dans une quantité donnée.
-Pour cette transaction le client paie un certain prix. Une opération d'Operation aura pour effet de déduire la quantité achetée du stock du médicaments correspondant et d'augmenter le crédit du client (d'un montant équivalent au montant de l'Operation moins la somme payée).
+operations(..) permet de traiter un operations fait par un client. l'operations porte sur un médicament donné dans une quantité donnée.
+Pour cette transaction le client paie un certain prix. Une opération d'operations aura pour effet de déduire la quantité achetée du stock du médicaments correspondant et d'augmenter le crédit du client (d'un montant équivalent au montant de l'operations moins la somme payée).
 Les noms du client et du médicament doivent être lus depuis le terminal.
 Le programme doit boucler jusqu'à introduction de noms connus aussi bien pour les clients que les médicament.
 Ces procédures de vérification seront prises en charge par les méthodes lireClient et lireMedicament (voir plus bas).
@@ -28,7 +28,7 @@ La quantité achetée et le montant payé sont aussi lus depuis le terminal. Ils
 
 quitter(..) affiche le message "programme terminé!".
 
-Vous définirez une méthode auxiliaire lireClient(..) prenant comme paramètre un liste de clients. Elle permettra de lire le nom d'un client depuis le terminal et de vérifier si ce client existe dans la liste des clients. Dans ce cas le client sera retourné. Cette méthode doit boucler jusqu'à ce qu'un client soit trouvé. Elle sera utilisée par la méthode Operation(..). Une méthode similaire, lireMedicament(..) sera fournie pour les médicaments. Elle sera utilisée par les méthodes Operation(..) et approvisionnement(..).
+Vous définirez une méthode auxiliaire lireClient(..) prenant comme paramètre un liste de clients. Elle permettra de lire le nom d'un client depuis le terminal et de vérifier si ce client existe dans la liste des clients. Dans ce cas le client sera retourné. Cette méthode doit boucler jusqu'à ce qu'un client soit trouvé. Elle sera utilisée par la méthode operations(..). Une méthode similaire, lireMedicament(..) sera fournie pour les médicaments. Elle sera utilisée par les méthodes operations(..) et approvisionnement(..).
 
 Vous êtes libre de définir, en plus de ces méthodes, toutes celles que vous jugerez nécessaires.
 

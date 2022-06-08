@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ecb2de29-68c4-4c6c-9a2e-735b583faea2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Operation/Inventaire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Operation/Operation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/description" beforeDir="false" afterPath="$PROJECT_DIR$/description" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/achat/Achat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Operation/Achat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clients/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clients/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/medicament/Medicament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/medicament/Medicament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Operation/Achat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operations/Achat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Operation/Inventaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operations/Inventaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Operation/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operations/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,14 +33,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dell/Downloads/gestion_pharmacie&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/dell/Downloads/gestionpharmacie/pom.xml"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\dell\Downloads\gestion_pharmacie" />
@@ -70,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654024883105</updated>
       <workItem from="1654024885489" duration="1475000" />
-      <workItem from="1654529548700" duration="2799000" />
+      <workItem from="1654529548700" duration="13766000" />
     </task>
     <servers />
   </component>
