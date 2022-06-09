@@ -7,16 +7,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Systeme de gestion des pharmacies");
-        HashSet<Medicament> medicaments = new HashSet<>();
-        Medicament medoc = new Medicament("MD001","paracetamol",5,100);
-        addMedicament(medicaments,medoc);
-        affichageMedicaments(medicaments);
-
-        //teste pour la verification
-
-          Medicament med= verifierMedicament(medicaments,"paracetamol");
-
-           System.out.println("medicament trouve "+med.getNomMedicament());
+        run();
 
 
     }
@@ -28,12 +19,13 @@ public class Main {
         int typeOperation;
         System.out.println("******Systeme gestion pharmacie*******");
         System.out.println("Choisissez une option ");
-        System.out.println(" 1: Achat de médicaments ");
-        System.out.println(" 2: Approvisionnement en médicament");
-        System.out.println(" 3: Etat des stocks et des crédits");
-        System.out.println(" 4: Liste des clients ");
-        System.out.println(" 5: Liste des médicaments ");
-        System.out.println(" 6: Quitter ");
+        System.out.println(" 1: Acheter des médicaments ");
+        System.out.println(" 2: Liste des clients");
+        System.out.println(" 3: Liste des médicaments");
+        System.out.println(" 4: Liste des achats ");
+        System.out.println(" 5: Approvisionner des médicaments ");
+        System.out.println(" 6: Etat des stocks et des crédits");
+        System.out.println(" 7: Quitter ");
 
         Scanner sc = new Scanner(System.in);
         System.out.println(" Entrer un numéro donné ");
@@ -64,11 +56,25 @@ public class Main {
         addClient(clients,client2);
         addClient(clients,client3);
 
+        HashSet<Achat> achats = new HashSet<>();
 
         switch (typeOperation){
             case 1:
              deroulementCase1(clients,medicaments);
+             break;
+            case 2:
+                affichageClients(clients);
+                break;
+            case 3:
+                affichageMedicaments(medicaments);
+                break;
+            case 4:
+                affichageAchat(achats);
+            default:
+                System.out.println("Option non pris en compte dans la gestion");
         }
+
+
 
 
 
@@ -78,28 +84,42 @@ public class Main {
 
     //des méthodes pour l'ajout de médicament au niveau de la collection et de clients
 
-    public static HashSet<Client> addClient(HashSet<Client> clients,Client client){
+    public static void addClient(HashSet<Client> clients,Client client){
         clients.add(client);
-        return clients;
     }
 
     //pour medicament
-    public static HashSet<Medicament> addMedicament(HashSet<Medicament> medicaments,Medicament medicament){
+    public static void addMedicament(HashSet<Medicament> medicaments,Medicament medicament){
         medicaments.add(medicament);
-        return medicaments;
     }
+
+    //pour les achats
+
+    public static void addAchat(HashSet<Achat> achats,Achat achat){
+        achats.add(achat);
+    }
+
+
 
     //affichage de la liste des medicaments et des clients
     public static void affichageClients(HashSet<Client> clients){
-        Iterator<Client> i = clients.iterator();
-        while(i.hasNext()){
-            System.out.println(i.next());
+        for(Client cl:clients){
+            System.out.println(cl.getNomClient()+ " "+cl.getCredit());
         }
     }
     public static void affichageMedicaments(HashSet<Medicament> medicaments){
-        Iterator<Medicament> i = medicaments.iterator();
-        while(i.hasNext()){
-            System.out.println(i.next().getNomMedicament());
+        for(Medicament medoc:medicaments){
+            System.out.println(medoc.getNomMedicament()+ " "+medoc.getQuantite());
+        }
+    }
+
+    //affichage des operations d'achat
+
+    public static void affichageAchat(HashSet<Achat> achats){
+        for(Achat a:achats){
+            System.out.println("date : "+a.getDateOperation()+ "\n"+
+                    " la quantité "+a.getQuantite()+" \n"+
+                    " le prix total "+a.getTotalPrice());
         }
     }
 
@@ -107,7 +127,7 @@ public class Main {
 
     public static Medicament verifierMedicament(HashSet<Medicament> medicaments,String medicament){
         for(Medicament m:medicaments){
-            if(m.getNomMedicament().equals(medicament)){
+            if(m.getNomMedicament().equalsIgnoreCase(medicament)){
                 return m;
             }
         }
@@ -152,6 +172,7 @@ public class Main {
                         achat.setClient(client);
                         achat.setQuantite(quantiteA);
                         double price = achat.getQuantite() * medicament.getPrixU();
+                        achat.setTotalPrice(price);
                         System.out.println("le prix total est : "+price);
                         //mis à jour des éléments quantite medoc et credit client
                         int quantiteRes = medicament.getQuantite() - quantiteA;
@@ -159,6 +180,12 @@ public class Main {
                         miseAjourMedicament(medicaments,medicament.getNomMedicament(),quantiteRes);
                         //mise a jour client aussi
                         updateCreditClient(clients,client.getIdentifiant(),price);
+
+                        //affichage client et affichage medicament
+
+                        affichageMedicaments(medicaments);
+                        System.out.println("**************************");
+                        affichageClients(clients);
                     }
 
 

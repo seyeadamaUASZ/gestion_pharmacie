@@ -10,6 +10,16 @@ public class Achat  extends Operation{
     private Medicament medicament;
     private int quantite;
 
+    private double totalPrice;
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public Achat(String typeOperation, Date dateOperation, Client client, Medicament medicament, int quantite, Date dateAchat) {
         super(typeOperation, dateOperation);
         this.client = client;
