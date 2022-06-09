@@ -6,18 +6,26 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Systeme de gestion des pharmacies");
-        run();
+            run();
+            String response = "O";
+            Scanner sc = new Scanner(System.in);
+            while (response.equals("O")){
+                System.out.println("Souhaitez-vous continuer ?");
+                response = sc.nextLine();
+                if(response.equals("N")){
+                    System.out.println("Application terminée");
+                    break;
+                }
 
+                else
+                    run();
 
+            }
     }
-
-
-    //fonction interphasage de l'application
-
+    //fonction run de l'application
     public static void run(){
         int typeOperation;
-        System.out.println("******Systeme gestion pharmacie*******");
+        //System.out.println("******Systeme gestion pharmacie*******");
         System.out.println("Choisissez une option ");
         System.out.println(" 1: Acheter des médicaments ");
         System.out.println(" 2: Liste des clients");
@@ -28,7 +36,7 @@ public class Main {
         System.out.println(" 7: Quitter ");
 
         Scanner sc = new Scanner(System.in);
-        System.out.println(" Entrer un numéro donné ");
+        System.out.println(" Entrer un numéro donné : ");
         typeOperation = sc.nextInt();
 
         HashSet<Client> clients = new HashSet<>();
@@ -42,7 +50,6 @@ public class Main {
         Medicament medoc3 = new Medicament("M003","Cetamyl",9,450);
 
         //ajout des medicaments sur la liste
-
         addMedicament(medicaments,medoc1);
         addMedicament(medicaments,medoc2);
         addMedicament(medicaments,medoc3);
@@ -70,20 +77,16 @@ public class Main {
                 break;
             case 4:
                 affichageAchat(achats);
+                break;
+            case 5:
+                System.out.println("numero 5");
+                break;
             default:
                 System.out.println("Option non pris en compte dans la gestion");
+                break;
         }
-
-
-
-
-
-
-
     }
-
     //des méthodes pour l'ajout de médicament au niveau de la collection et de clients
-
     public static void addClient(HashSet<Client> clients,Client client){
         clients.add(client);
     }
@@ -92,14 +95,10 @@ public class Main {
     public static void addMedicament(HashSet<Medicament> medicaments,Medicament medicament){
         medicaments.add(medicament);
     }
-
     //pour les achats
-
     public static void addAchat(HashSet<Achat> achats,Achat achat){
         achats.add(achat);
     }
-
-
 
     //affichage de la liste des medicaments et des clients
     public static void affichageClients(HashSet<Client> clients){
@@ -114,17 +113,20 @@ public class Main {
     }
 
     //affichage des operations d'achat
-
     public static void affichageAchat(HashSet<Achat> achats){
-        for(Achat a:achats){
-            System.out.println("date : "+a.getDateOperation()+ "\n"+
-                    " la quantité "+a.getQuantite()+" \n"+
-                    " le prix total "+a.getTotalPrice());
+        if(!achats.isEmpty()){
+            for(Achat a:achats){
+                System.out.println("date : "+a.getDateOperation()+ "\n"+
+                        " la quantité "+a.getQuantite()+" \n"+
+                        " le prix total "+a.getTotalPrice());
+            }
+        }else{
+            System.out.println(" la liste d'achat est vide !!!");
         }
+
     }
 
     //methode de verification d'un médicament ou client
-
     public static Medicament verifierMedicament(HashSet<Medicament> medicaments,String medicament){
         for(Medicament m:medicaments){
             if(m.getNomMedicament().equalsIgnoreCase(medicament)){
@@ -142,7 +144,6 @@ public class Main {
         }
         return null;
     }
-
 
     public static void deroulementCase1(HashSet<Client> clients,HashSet<Medicament> medicaments){
             String nomMedicament;
@@ -188,16 +189,12 @@ public class Main {
                         affichageClients(clients);
                     }
 
-
                 }
             }
 
-
     }
 
-
     // faire une mise à jour au niveau de la liste
-
     public static void miseAjourMedicament(HashSet<Medicament> medicaments,String nomMedoc,int quantiteR){
         //parcourir et supprimer pour le réajouter
         Medicament current = new Medicament();
