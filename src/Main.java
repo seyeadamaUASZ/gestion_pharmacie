@@ -31,7 +31,9 @@ public class Main {
         System.out.println(" 1: Achat de médicaments ");
         System.out.println(" 2: Approvisionnement en médicament");
         System.out.println(" 3: Etat des stocks et des crédits");
-        System.out.println(" 4: Quitter ");
+        System.out.println(" 4: Liste des clients ");
+        System.out.println(" 5: Liste des médicaments ");
+        System.out.println(" 6: Quitter ");
 
         Scanner sc = new Scanner(System.in);
         System.out.println(" Entrer un numéro donné ");
@@ -155,6 +157,8 @@ public class Main {
                         int quantiteRes = medicament.getQuantite() - quantiteA;
                         medicament.setQuantite(quantiteRes);
                         miseAjourMedicament(medicaments,medicament.getNomMedicament(),quantiteRes);
+                        //mise a jour client aussi
+                        updateCreditClient(clients,client.getIdentifiant(),price);
                     }
 
 
@@ -188,6 +192,30 @@ public class Main {
         medoc.setPrixU(current.getPrixU());
         //ajout du medoc
         medicaments.add(medoc);
+    }
+
+
+    //mise à jour credit client
+
+    public static void updateCreditClient(HashSet<Client> clients,String codeClient,double creditAdded){
+        Client cl = new Client();
+        for(Client c:clients){
+            if(c.getIdentifiant().equals(codeClient)){
+                cl = c;
+                break;
+            }
+        }
+        //faisons un remove de ce client
+        clients.remove(cl);
+        Client client1 = new Client();
+        double credit = cl.getCredit() + creditAdded;
+        client1.setCredit(credit);
+        client1.setNomClient(cl.getNomClient());
+        String code = "CL"+ UUID.randomUUID().toString();
+        client1.setIdentifiant(code);
+
+        //réajouter au niveau de la liste
+        clients.add(client1);
     }
 
 }
